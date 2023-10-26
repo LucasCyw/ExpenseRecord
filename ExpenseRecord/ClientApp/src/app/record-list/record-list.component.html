@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Expense Record</h1>
+  <!--<div class="searchDiv">
+    <button mat-raised-button class="reloadButton" (click)="reload()">Reload</button>
+  </div>-->
+ 
+  <table>
+    <th>Description</th>
+    <th>Type</th>
+    <th>Amount</th>
+    <th>Date</th>
+    <ng-container *ngFor="let item of records ">
+      <tr>
+        <td>{{ item.description }}</td>
+        <td>{{ item.type }}</td>
+        <td>{{ item.amount }}</td>
+        <td>{{ item.date | date :' MM/dd/yy H:mm'}}</td>
+        <td><button (click)="delete(item.id)" style="width: 100px;">Delete</button></td>
+      </tr>
+    </ng-container>
+    <tr>
+      <td><input [(ngModel)]="newRecord.description" type="text"></td>
+      <td><input [(ngModel)]="newRecord.type" type="text"></td>
+      <td><input [(ngModel)]="newRecord.amount" type="text"></td>
+      <td><input [(ngModel)]="newRecord.date" type="datetime-local"></td>
+      <td><button (click)="create()" style="width: 100px;">Add</button></td>
+    </tr>
+  </table>
+</div>
+
+<!-- (change)="someKeywordChange($event)" -->
